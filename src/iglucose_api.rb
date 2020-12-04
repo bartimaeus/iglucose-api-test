@@ -36,10 +36,10 @@ class IGlucoseApi
   attr_accessor :api_key
 
   def default_start_time
-    Date.today.prev_day.strftime('%Y-%m-%d 00:00:00')
+    Date.today.prev_day.strftime('%Y-%m-%dT00:00:00')
   end
   
   def default_end_time
-    Date.today.strftime('%Y-%m-%d 23:59:59')
+    Date.today.strftime('%Y-%m-%dT23:59:59')
   end
 end

@@ -27,7 +27,7 @@ class IGlucoseApi
   def get_order_status(payload)
     uri = "#{ENV['IGLUCOSE_API_ENDPOINT']}/fulfillment/number"
     params = payload.merge(api_key: api_key)
-    response = Faraday.get(uri, params.to_json, {'Accept' => 'application/json'})
+    response = Faraday.get(uri, params, {'Accept' => 'application/json'})
     JSON.parse(response.body).merge(status: response.status)
   end
 

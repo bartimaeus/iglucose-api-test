@@ -14,21 +14,20 @@ class IGlucoseApi
       date_end: end_date || default_end_time
     }
     params.merge!(meter_ids: device_ids) if device_ids.present?
-    response = Faraday.post(uri, params, {'Accept' => 'application/json'})
+    response = Faraday.post(uri, params.to_json, {'Accept' => 'application/json'})
     JSON.parse(response.body).merge(status: response.status)
   end
 
   def create_fulfillment_order(payload)
-    uri = "#{ENV['IGLUCOSE_API_ENDPOINT']}/fulfillment/"
-    params = payload.merge(api_key: api_key)
-    response = Faraday.post(uri, params, {'Accept' => 'application/json'})
+    uri = "#{ENV['IGLUCOSE_API_ENDPOINT']}/fulfillment/?api_key=#{api_key}"
+    response = Faraday.post(uri, payload.to_json, {'Accept' => 'application/json'})
     JSON.parse(response.body).merge(status: response.status)
   end
 
   def get_order_status(payload)
     uri = "#{ENV['IGLUCOSE_API_ENDPOINT']}/fulfillment/number"
     params = payload.merge(api_key: api_key)
-    response = Faraday.get(uri, params, {'Accept' => 'application/json'})
+    response = Faraday.get(uri, params.to_json, {'Accept' => 'application/json'})
     JSON.parse(response.body).merge(status: response.status)
   end
 

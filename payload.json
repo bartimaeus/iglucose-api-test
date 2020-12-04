@@ -1,0 +1,19 @@
+{
+  "order_number": 1010,
+  "customer_name": "Test Customer",
+  "customer_id": "1234",
+  "address1": "123 Maple Ave",
+  "address2": "",
+  "city": "Oconomowoc",
+  "state": "WI",
+  "zipcode": "53066",
+  "country": "United States",
+  "shipping_method": "MAIL",
+  "lines": [
+    {
+      "quantity": "1",
+      "sku": "subscript1.2.0",
+      "line_name": "iGlucose Blood Glucose Monitoring System (US)"
+    }
+  ]
+}

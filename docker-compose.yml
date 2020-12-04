@@ -1,0 +1,16 @@
+version: "3.2"
+
+services:
+  ruby:
+    build: .
+    container_name: iglucose_api
+    hostname: iglucose
+    command: sh
+    volumes:
+      - .:/iglucose
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    tty: true
+    stdin_open: true
